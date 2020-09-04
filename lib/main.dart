@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc_flutter/counter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +13,21 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class InputPage extends StatelessWidget {
+class InputPage extends StatefulWidget {
+  @override
+  _InputPageState createState() => _InputPageState();
+}
+
+class _InputPageState extends State<InputPage> {
   CounterBloc counterBloc = CounterBloc();
+
+
+  @override
+  void dispose() {
+    counterBloc.dispose();
+    super.dispose();
+
+  }
 
   @override
   Widget build(BuildContext context) {
